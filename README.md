@@ -8,7 +8,7 @@ Are you wondering how many doable medals would need to be released in a row in o
 
 Well good news, I, Tomy, have finally decided to make a program that solves that for you.
 
-Introducing osu! Medal Displacer Calculator...
+Introducing osu! Medal Displacer Calculator, made for Java 8 and above...
 
 there are two modes:
 
