@@ -46,14 +46,15 @@ public class Main
         }
         else if (modeOfChoice == JOptionPane.NO_OPTION) // Medal Literal Method - wantedMedalPercentInDecimal is initialized to wished medals count in order to save wanted medal %
         {
-            wantedMedalPercentInDecimal = new BigDecimal(JOptionPane.showInputDialog(null, "You have " + obtainedMedalCount + " medals.\nEnter the amount of medals you wish you had out of the " + existingMedalCount + " currently existing medals:"));
+            short wantedMedalCount = Short.parseShort(JOptionPane.showInputDialog(null, "You have " + obtainedMedalCount + " medals.\nEnter the amount of medals you wish you had out of the " + existingMedalCount + " currently existing medals (must be between 0 and 32,767:"));
+            wantedMedalPercentInDecimal = new BigDecimal(wantedMedalCount);
             wantedMedalPercentInDecimal = wantedMedalPercentInDecimal.divide(existingMedalCount, bigDecimalPrecision, RoundingMode.HALF_UP);
 
             // Calculate
             requiredDoableMedalsInARowAdditions = calculateRequiredDoableMedalsInARowAdditions(obtainedMedalCount, existingMedalCount, wantedMedalPercentInDecimal);
 
             // Results Shown To User
-            JOptionPane.showMessageDialog(null, "With you having " + obtainedMedalCount + " out of " + existingMedalCount + " medal(s) meaning you wish to have " + wantedMedalPercentInDecimal.multiply(multiplicandToConvertBetweenDecimalAndPercent) + "%,\nyou need " + requiredDoableMedalsInARowAdditions + " doable medals in a row to be added.\n\nDecimal Point Numbers of Precision (if humungous, consider Alt + F4): " + bigDecimalPrecision + "\nI hope this program was of use to you.");
+            JOptionPane.showMessageDialog(null, "With you having " + obtainedMedalCount + " out of " + existingMedalCount + " medal(s) and wishing that instead you had " + wantedMedalCount + " medals or " + wantedMedalPercentInDecimal.multiply(multiplicandToConvertBetweenDecimalAndPercent) + "%,\nyou need " + requiredDoableMedalsInARowAdditions + " doable medals in a row to be added.\n\nDecimal Point Numbers of Precision (if humungous, consider Alt + F4): " + bigDecimalPrecision + "\nI hope this program was of use to you.");
         }
     }
 
